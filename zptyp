@@ -1,0 +1,19 @@
+<?php
+
+require 'connect.php';
+
+$zprod_query='SELECT DISTINCT `zptyp_txt` FROM `mo_product_master`';
+$query_run=mysql_query($zprod_query);
+
+?>
+<h2>Select the following details:</h2>
+
+<form action="<?php echo $current_filepath;//depends on what you want accourding to your code?>" method="post">
+<select name="zptyp_txt" onChange="insert()" id="zptyp_txt">
+<?php 
+while($zprod_array=mysql_fetch_assoc($query_run)) {
+	?><option><?php echo $zprod_array['zptyp_txt'];?></option><?php
+}
+?>
+</select><br/>
+</form>
